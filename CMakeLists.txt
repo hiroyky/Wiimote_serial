@@ -11,7 +11,7 @@ set(Boost_USE_MULTITHREADED ON)
 if(NOT DEFINED BOOST_ROOT)
     set(BOOST_ROOT /usr/include)
 endif()
-find_package(Boost COMPONENTS system program_options thread REQUIRED)
+find_package(Boost COMPONENTS system program_options thread regex serialization REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 ## Wiiuse

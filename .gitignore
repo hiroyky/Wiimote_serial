@@ -1,0 +1,14 @@
+build/
+Debug/
+Release/
+CMakeFiles/
+CMakeCache.txt
+.vs/
+*.vcxproj
+*.vcxproj.*
+cmake_install.cmake
+*.sdf
+*.sln
+x64/
+x86/
+*.VC.opendb

@@ -8,11 +8,11 @@ OrientationPtreed::OrientationPtreed(const Orientation& base) : Orientation(base
 
 ptree OrientationPtreed::toPtree() const {
 	ptree pt;
-	pt.put("roll", roll);
-	pt.put("pitch", pitch);
-	pt.put("yaw", yaw);
-	pt.put("absoluteRoll", absoluteRoll);
-	pt.put("absolutePitch", absolutePitch);
+	pt.put("Roll", roll);
+	pt.put("Pitch", pitch);
+	pt.put("Yaw", yaw);
+	pt.put("AbsoluteRoll", absoluteRoll);
+	pt.put("AbsolutePitch", absolutePitch);
 	return pt;
 }
 
@@ -22,18 +22,18 @@ WiimoteStatusPtreed::WiimoteStatusPtreed(const WiimoteStatus& base) : WiimoteSta
 
 ptree WiimoteStatusPtreed::toPtree() const {
 	ptree pt;
-	pt.put("a", a);
-	pt.put("b", b);
-	pt.put("one", one);
-	pt.put("two", two);
-	pt.put("plus", plus);
-	pt.put("minus", minus);
-	pt.put("home", home);
-	pt.put("up", up);
-	pt.put("down", down);
-	pt.put("right", right);
-	pt.put("left", left);
-	pt.add_child("orientation", ((OrientationPtreed)orientation).toPtree());
+	pt.put("A", a);
+	pt.put("B", b);
+	pt.put("One", one);
+	pt.put("Two", two);
+	pt.put("Plus", plus);
+	pt.put("Minus", minus);
+	pt.put("Home", home);
+	pt.put("Up", up);
+	pt.put("Down", down);
+	pt.put("Right", right);
+	pt.put("Left", left);
+	pt.add_child("Orientation", ((OrientationPtreed)orientation).toPtree());
 	return pt;
 }
 

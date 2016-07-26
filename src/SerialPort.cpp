@@ -6,6 +6,7 @@ SerialPort::SerialPort(const std::string& _com) :
 }
 
 SerialPort::~SerialPort() {
+	serialPort->close();
 	delete io;
 	delete serialPort;
 }

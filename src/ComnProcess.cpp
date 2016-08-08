@@ -21,7 +21,7 @@ void ComnProcess::initialize() {
 		std::exception("Failed to connect wiimote devices.");
 	}
 	wiimote = foundDevices.front();
-	//wiimote->turnOnMotionSensing();
+	wiimote->turnOnMotionSensing();
 	wiimote->turnOnLed(WiimoteLed::LED_OFF);
 	serialPort->open();
 }
@@ -34,7 +34,11 @@ void ComnProcess::run() {
 		}
 
 		WiimoteStatusPtreed status = wiimote->getStatus();
+#if 0
+		std::cout << status.orientation.pitch << ", "
+			<< status.orientation.roll << ", "
+			<< status.orientation.yaw << std::endl;
+#endif
 		serialPort->write(status.toJson());
-		std::cout << status.toJson() << std::endl;
 	}
 }

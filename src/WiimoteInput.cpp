@@ -105,12 +105,12 @@ WiimoteEvent WiimoteInput::toWiimoteEvent(int e) const {
 	return (WiimoteEvent)e;
 }
 
-Button WiimoteInput::getButtonStatus(int button) const {
+Button WiimoteInput::getButtonStatus(int button) const {	
 	if (IS_JUST_PRESSED(device, button)) {
 		return Button::JUST_PRESSED;
 	}
 	if (IS_PRESSED(device, button)) {
 		return Button::PRESSED;
-	}
+	}	
 	return Button::RELEASED;
 }

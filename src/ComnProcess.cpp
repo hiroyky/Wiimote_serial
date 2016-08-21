@@ -1,6 +1,7 @@
 #include "ComnProcess.h"
 #include <vector>
 #include <excpt.h>
+#include <ctime>
 #include "SerialPort.h"
 #include "WiimotePtreeStructs.h"
 
@@ -24,6 +25,7 @@ void ComnProcess::initialize() {
 	wiimote->turnOnMotionSensing();
 	wiimote->turnOnLed(WiimoteLed::LED_OFF);
 	serialPort->open();
+	std::cout << "Serial Port open" << std::endl;
 }
 
 void ComnProcess::run() {
@@ -39,6 +41,8 @@ void ComnProcess::run() {
 			<< status.orientation.roll << ", "
 			<< status.orientation.yaw << std::endl;
 #endif
-		serialPort->write(status.toJson());
+		std::stringstream ss;
+		ss << status.b << "," << status.orientation.pitch << "," << status.orientation.roll;
+		serialPort->write(ss.str());		
 	}
 }
